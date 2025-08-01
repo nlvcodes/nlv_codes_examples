@@ -20,6 +20,10 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    autoLogin: {
+      username: 'nick@nlvogel.com',
+      password: 'test',
+    },
   },
   collections: [Users, Media, Page],
   editor: lexicalEditor(),
