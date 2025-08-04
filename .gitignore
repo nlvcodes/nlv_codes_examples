@@ -1,0 +1,23 @@
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Node/JS
+node_modules/
+.env
+.env.*
+.next/
+dist/
+build/
+coverage/
+
+# Keys & private material (defense-in-depth)
+.ssh/
+*.pem
+*.key
+**/id_rsa
+**/id_dsa
+**/id_ecdsa
+**/id_ed25519
