@@ -2,12 +2,22 @@ import type { CollectionConfig } from 'payload'
 
 export const Users: CollectionConfig = {
   slug: 'users',
+  disableBulkEdit: false,
   admin: {
     useAsTitle: 'email',
   },
-  auth: true,
+  auth: {
+    useSessions: false
+  },
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      type: 'select',
+      name: 'roles',
+      hasMany: true,
+      options: [
+        'admin',
+        'user'
+      ]
+    }
   ],
 }

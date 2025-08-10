@@ -12,5 +12,13 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
+  upload: {
+    // allowRestrictedFileTypes: true,
+    mimeTypes: ['image/jpeg'],
+    admin: {
+      components: {
+        controls: ['/app/components/UploadControl.tsx#ExampleButton']
+      }
+    }
+  },
 }
