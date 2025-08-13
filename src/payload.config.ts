@@ -19,6 +19,21 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    autoLogin: {
+      email: 'nick@midlowebdesign.com',
+      password: 'test',
+    },
+    components: {
+      views: {
+        analytics: {
+          Component: '@/components/PlausibleView/index.tsx',
+          path: '/analytics',
+        }
+      },
+      afterNavLinks: [
+        {path: '@/components/AfterNavLinks/index.tsx'}
+      ]
+    }
   },
   collections: [Users, Media],
   editor: lexicalEditor(),

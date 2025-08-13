@@ -29,7 +29,9 @@
     "next": "15.4.4",
     "payload": "3.50.0",
     "react": "19.1.0",
-    "sharp": "0.34.2"
+    "recharts": "^3.1.2",
+    "sharp": "0.34.2",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@playwright/test": "1.54.1",
