@@ -28,8 +28,13 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: process.env.DATABASE_URL || '',
     },
+    idType: 'serial', // default
+    allowIDOnCreate: true, // defaults to false
+    push: true, // default
+    migrationDir: path.resolve(dirname, 'payload-migrations'),
+    blocksAsJSON: true, // defaults to false
   }),
   sharp,
   plugins: [
