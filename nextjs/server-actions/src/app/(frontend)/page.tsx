@@ -69,7 +69,7 @@ export default async function HomePage() {
         </button>
       </form>
       <div>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}></ul>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {docs.map((doc) => (
           <li
             key={doc.id}
@@ -95,6 +95,7 @@ export default async function HomePage() {
             </span>
           </li>
         ))}
+          </ul>
       </div>
     </>
   )
