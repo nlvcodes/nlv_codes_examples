@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import React from 'react'
 import config from '@/payload.config'
+import { notFound } from 'next/navigation'
 
 interface PageProps {
   params: Promise<{
@@ -11,7 +12,7 @@ interface PageProps {
 export default async function Page({params}: PageProps) {
   const payload = await getPayload({ config })
   const {slug = 'home'} = await params
-  const { title, text } = await payload
+  const page = await payload
     .find({
       collection: 'pages',
       where: {
@@ -22,11 +23,15 @@ export default async function Page({params}: PageProps) {
     })
     .then((res) => res.docs[0])
 
+  if (!page) {
+    return notFound()
+  }
+
   return (
     <div>
-      <h1 style={{color: '#efefef'}}>{title}</h1>
+      <h1 style={{color: '#efefef'}}>{page.title}</h1>
       <hr/>
-      <p style={{color: '#efefef'}}>{text}</p>
+      <p style={{color: '#efefef'}}>{page.text}</p>
     </div>
   )
 }
