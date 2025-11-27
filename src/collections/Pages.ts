@@ -1,4 +1,5 @@
 import { CollectionConfig, slugField } from 'payload'
+import { revalidateDelete, revalidatePage } from '@/collections/hooks/revalidatePage'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -12,7 +13,15 @@ export const Pages: CollectionConfig<'pages'> = {
       name: 'text',
       type: 'text',
     }
-  ]
+  ],
+  hooks: {
+    afterChange: [
+      revalidatePage,
+    ],
+    afterDelete: [
+      revalidateDelete
+    ]
+  }
 }
 
 export default Pages
