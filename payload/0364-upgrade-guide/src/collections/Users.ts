@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { lexicalEditor, BlocksFeature, UploadFeature } from '@payloadcms/richtext-lexical'
+import { lexicalEditor, BlocksFeature, UploadFeature, CodeBlock } from '@payloadcms/richtext-lexical'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -18,9 +18,12 @@ export const Users: CollectionConfig = {
           hideDraggableBlockElement: true,
         },
         features: () => [
-          UploadFeature({}),
+          UploadFeature({
+
+          }),
           BlocksFeature({
             blocks: [
+              CodeBlock(),
               {
                 slug: 'testBlock',
                 fields: [

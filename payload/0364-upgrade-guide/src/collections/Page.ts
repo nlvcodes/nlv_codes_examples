@@ -1,4 +1,4 @@
-import {CollectionConfig} from 'payload'
+import { CollectionConfig, type TextField } from 'payload'
 import {slugField} from 'payload'
 
 export const Page: CollectionConfig = {
@@ -10,12 +10,34 @@ export const Page: CollectionConfig = {
     },
   },
   fields: [
+    {
+      type: 'upload',
+      name: 'upload',
+      relationTo: ['media', 'documents'],
+    },
+    {
+      type: 'date',
+      name: 'date',
+      timezone: {
+        defaultTimezone: 'UTC',
+        supportedTimezones: [
+          { label: 'Coordinated Universal Time', value: 'UTC' },
+          { label: 'New York', value: 'America/New_York' },
+          { label: 'Los Angeles', value: 'America/Los_Angeles' },
+        ],
+      },
+    },
     slugField({
       fieldToUse: 'text',
       checkboxName: 'Generate',
+      overrides: (field) => {
+        ;(field.fields[1] as TextField).label = 'Custom'
+        return field
+      },
     }),
     {
       type: 'text',
+      localized: true,
       name: 'text',
       admin: {
         // disableGroupBy: true,
