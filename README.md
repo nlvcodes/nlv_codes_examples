@@ -7,4 +7,4 @@ A monorepo of code examples and tutorials.
 - [payload/](payload/)
 - [nextjs/](nextjs/)
 - [tailwind/](tailwind/)
-- [astro/](astro/)
+- [astro/](astrojs/)
