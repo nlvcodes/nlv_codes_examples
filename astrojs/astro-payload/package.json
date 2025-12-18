@@ -1,0 +1,13 @@
+{
+  "name": "astro-payload-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:payload": "cd astro-payload && pnpm dev",
+    "dev:website": "cd astro-website && pnpm dev"
+  }
+}

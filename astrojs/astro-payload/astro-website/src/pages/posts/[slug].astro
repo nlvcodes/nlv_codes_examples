@@ -1,0 +1,41 @@
+---
+import {getPayload} from "payload";
+import type {Post} from "astro-payload";
+import type {PaginatedDocs} from "payload";
+import {config} from "astro-payload";
+
+interface Props {
+    posts: PaginatedDocs<Post>
+}
+
+const payload = await getPayload({config})
+const posts = await payload.find({
+    collection: "posts",
+    limit: 0,
+})
+
+export function getStaticPaths() {
+    return posts.docs.map(doc => ({
+        params: {
+            slug: doc.slug,
+        }
+    }))
+}
+
+const postParams = Astro.params
+
+const post = await payload.find({
+    collection: "posts",
+    limit: 1,
+    where: {
+        slug: {
+            equals: postParams.slug,
+        }
+    }
+}).then(res => res.docs[0])
+
+---
+<main>
+    <h1>{post.title}</h1>
+    <div set:html={post.html} />
+</main>

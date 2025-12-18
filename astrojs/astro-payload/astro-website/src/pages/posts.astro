@@ -1,0 +1,31 @@
+---
+import {getPayload, type PaginatedDocs} from "payload";
+import {config, type Post} from "astro-payload";
+
+interface Props {
+    posts: PaginatedDocs<Post>
+    title: string,
+}
+
+const payload = await getPayload({config})
+const posts = await payload.find({
+    collection: "posts",
+    limit: 0,
+    sort: 'createdAt',
+})
+
+const {title = "Test Posts"} = Astro.props
+---
+<title>{title}</title>
+<div>
+    <h1>Posts</h1>
+    <div>
+        {
+            posts.docs.map(post => (
+                <a style="border: 1px solid darkblue; padding: 1rem; margin: 0 1rem; border-radius: 1rem; box-shadow: 1px 1px 1px rgba(0,0,0,0.5)" href=`/posts/${post.slug}`>
+                    {post.title}
+                </a>
+            ))
+        }
+    </div>
+</div>
