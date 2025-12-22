@@ -1,7 +1,7 @@
 import { CollectionConfig, slugField } from 'payload'
 
-export const Pages: CollectionConfig = {
-  slug: 'pages',
+export const Posts: CollectionConfig = {
+  slug: 'posts',
   fields: [
     slugField(),
     {
