@@ -33,7 +33,8 @@ export default buildConfig({
     s3Storage({
       collections: {
         media: {
-          generateFileURL: ({ filename }) => `https://images.nlvcodes.com/remote-patterns/${filename}`,
+          generateFileURL: ({ filename }) =>
+            `https://pub-33721712bbd6434fb0d420a753141a55.r2.dev/${filename}`,
         },
       },
       bucket: process.env.S3_BUCKET!,
