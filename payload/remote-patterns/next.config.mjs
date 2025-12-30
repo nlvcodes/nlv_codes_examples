@@ -1,5 +1,7 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
+const urls = [new URL('https://pub-33721712bbd6434fb0d420a753141a55.r2.dev/**')]
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Your Next.js config here
@@ -12,6 +14,9 @@ const nextConfig = {
 
     return webpackConfig
   },
+  images: {
+    remotePatterns: urls,
+  }
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })
