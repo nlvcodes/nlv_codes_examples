@@ -26,7 +26,25 @@ export default buildConfig({
       beforeLogin: ['@/components/BeforeLogin'],
       // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below.
-      beforeDashboard: ['@/components/BeforeDashboard'],
+      // beforeDashboard: ['@/components/BeforeDashboard'],
+    },
+    dashboard: {
+      widgets: [
+        {
+          ComponentPath: '@/components/Widgets/PostsCount.tsx',
+          slug: 'posts-count',
+          label: 'Post Count',
+          maxWidth: 'medium',
+          minWidth: 'x-small',
+        },
+        {
+          ComponentPath: '@/components/Widgets/PagesCount.tsx',
+          slug: 'pages-count',
+          label: 'Page Count',
+          maxWidth: 'large',
+          minWidth: 'x-small',
+        },
+      ],
     },
     importMap: {
       baseDir: path.resolve(dirname),
