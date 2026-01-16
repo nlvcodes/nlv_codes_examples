@@ -1,0 +1,12 @@
+{
+  "name": "tanstack-payload-monorepo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "generate:types": "cd cms && pnpm generate:types",
+    "generate:importmap": "cd cms && pnpm generate:importmap",
+    "dev:payload": "cd cms && pnpm dev -p 3001",
+    "dev:website": "cd website && pnpm dev"
+  }
+}
