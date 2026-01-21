@@ -1,12 +1,23 @@
 import { CollectionConfig, type TextField } from 'payload'
-import {slugField} from 'payload'
+import { slugField } from 'payload'
+import slugify from 'slugify'
 
 export const Page: CollectionConfig = {
   slug: 'pages',
+  versions: {
+    drafts: {
+      localizeStatus: true
+    },
+  },
   admin: {
     groupBy: true,
     formatDocURL: ({ defaultURL }) => {
       return defaultURL
+    },
+    components: {
+      edit: {
+        Status: '/components/settingsMenuItem/index.tsx',
+      },
     },
   },
   fields: [
@@ -22,13 +33,22 @@ export const Page: CollectionConfig = {
         defaultTimezone: 'UTC',
         supportedTimezones: [
           { label: 'Coordinated Universal Time', value: 'UTC' },
-          { label: 'New York', value: 'America/New_York' },
+          { label: 'New York', value: '-08:30' },
           { label: 'Los Angeles', value: 'America/Los_Angeles' },
         ],
+        override: ({ baseField }) => ({
+          ...baseField,
+          admin: {
+            ...baseField.admin,
+            disableListColumn: true,
+          },
+        }),
       },
     },
     slugField({
       fieldToUse: 'text',
+      useAsSlug: 'text',
+      slugify: ({ valueToSlugify }) => slugify(valueToSlugify, { lower: true }),
       checkboxName: 'Generate',
       overrides: (field) => {
         ;(field.fields[1] as TextField).label = 'Custom'

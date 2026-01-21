@@ -19,6 +19,9 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  experimental: {
+    localizeStatus: true,
+  },
   kv: inMemoryKVAdapter(),
   localization: {
     defaultLocale: 'en',
@@ -51,15 +54,18 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
+    strictDraftTypes: true,
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
+    bulkOperationsSingleTransaction: true,
   }),
   sharp,
   plugins: [
     // storage-adapter-placeholder
   ],
   jobs: {
+    enableConcurrencyControl: true,
     access: {
       queue: ({ req }) => req?.user?.email === 'nick@nlvogel.com',
       cancel: ({ req }) => req?.user?.email === 'nick@nlvogel.com',
@@ -67,6 +73,11 @@ export default buildConfig({
     tasks: [
       {
         slug: 'testTask',
+        concurrency: {
+          key: ({ input }) => input.id,
+          exclusive: true,
+          supersedes: true,
+        },
         onFail: ({ input, job, req: { payload }, taskStatus }) => {},
         onSuccess: (args) => {},
         handler: (args) => {
