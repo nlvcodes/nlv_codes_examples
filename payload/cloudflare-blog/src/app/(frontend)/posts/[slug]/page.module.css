@@ -1,0 +1,74 @@
+/* @/app/(frontend)/posts/[slug]/page.module.css */
+.post {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 45px;
+
+  @media (max-width: 400px) {
+    padding: 24px;
+  }
+}
+
+.hero {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 24px;
+    min-height: 260px;
+  }
+
+  @media (max-width: 400px) {
+    min-height: 200px;
+  }
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+  width: 100%;
+
+  @media (max-width: 400px) {
+    padding: 20px;
+  }
+}
+
+.title {
+  margin: 0 0 16px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category {
+  font-size: 14px;
+  line-height: 1;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: rgb(255, 255, 255);
+}

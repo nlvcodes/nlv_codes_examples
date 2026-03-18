@@ -1,0 +1,38 @@
+/* @/app/(frontend)/components/TextAndMedia/Component.module.css */
+.section {
+  margin: 40px 0;
+
+  @media (max-width: 1024px) {
+    margin: 24px 0;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.text {
+  @media (max-width: 768px) {
+    order: 2;
+  }
+}
+
+.text *:first-child {
+  margin-top: 0;
+}
+
+.image {
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    order: 1;
+  }
+}

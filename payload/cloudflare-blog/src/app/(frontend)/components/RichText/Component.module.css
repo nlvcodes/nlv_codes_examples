@@ -1,0 +1,73 @@
+/* @/app/(frontend)/components/RichText/Component.module.css */
+.richText {
+  font-size: 18px;
+  line-height: 32px;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
+.richText h2 {
+  font-size: 36px;
+  line-height: 42px;
+  margin: 40px 0 16px;
+
+  @media (max-width: 1024px) {
+    font-size: 28px;
+    line-height: 34px;
+    margin: 24px 0 12px;
+  }
+}
+
+.richText h3 {
+  font-size: 24px;
+  line-height: 32px;
+  margin: 32px 0 12px;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+    line-height: 28px;
+    margin: 20px 0 8px;
+  }
+}
+
+.richText blockquote {
+  border-left: 3px solid rgb(255, 255, 255);
+  padding-left: 20px;
+  margin: 24px 0;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.richText ul,
+.richText ol {
+  padding-left: 24px;
+  margin: 24px 0;
+}
+
+.richText li {
+  margin: 8px 0;
+}
+
+.richText code {
+  font-family: var(--font-mono);
+  background: rgb(60, 60, 60);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.richText pre {
+  background: rgb(30, 30, 30);
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.richText pre code {
+  background: none;
+  padding: 0;
+}
