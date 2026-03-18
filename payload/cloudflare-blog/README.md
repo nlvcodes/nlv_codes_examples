@@ -1,4 +1,4 @@
-# Payload CMS on Cloudflare Workers
+# Payload on Cloudflare Workers
 
 A sample blog built with [Payload](https://payloadcms.com) and deployed to [Cloudflare Workers](https://workers.cloudflare.com), using D1 for the database and R2 for media storage. Based on the official [with-cloudflare-d1](https://github.com/payloadcms/payload/tree/main/templates/with-cloudflare-d1) template.
 
