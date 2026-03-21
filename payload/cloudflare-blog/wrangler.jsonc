@@ -22,7 +22,8 @@
     {
       "binding": "D1",
       "database_name": "cloudflare-blog-db",
-      "database_id": "15ec0620-7492-4b17-9770-e2421365ab3c"
+      "database_id": "15ec0620-7492-4b17-9770-e2421365ab3c",
+      "remote": true
     }
   ],
   "services": [
